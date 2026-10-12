@@ -2,6 +2,14 @@
 
 Website bán đồ công nghệ bằng tiếng Việt, dùng React + Vite cho giao diện và Express + SQLite cho API. Yêu cầu **Node.js 24 trở lên**.
 
+## Xem bản mẫu bằng GitHub Pages
+
+Bản mẫu không cần backend được chuẩn bị trên nhánh `gh-pages`. Trong GitHub repository mở **Settings → Pages**, chọn **Deploy from a branch**, chọn **gh-pages** và **/ (root)**, rồi bấm **Save**. Khi GitHub báo triển khai thành công, địa chỉ là `https://neil228386.github.io/Nguyen-tech/`.
+
+Bản Pages dùng hash routing, ảnh/phông chữ nhúng trong HTML và dữ liệu mô phỏng. Có thể thử tìm kiếm, giỏ hàng, đặt hàng, tra cứu và quản trị. Dùng thông tin giả để thử đăng nhập; bản mẫu không xác thực hoặc lưu mật khẩu. Đơn và tài khoản mô phỏng mất khi tải lại trang. **Đây không phải backend Express/SQLite và không nhận đơn thật.**
+
+`npm run build:demo` tạo `demo/nguyen-tech-demo.html`, có thể tải về mở riêng hoặc dùng làm `index.html` trên GitHub Pages. Để cập nhật Pages, tạo lại bản mẫu rồi cập nhật `index.html` trên nhánh `gh-pages`. Không đưa database, mật khẩu hay khóa API vào nhánh Pages.
+
 ## Chạy để phát triển
 
 ```bash

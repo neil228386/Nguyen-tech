@@ -1,4 +1,7 @@
+import { demoApi } from './demo-api.js';
+
 export async function api(path, options = {}) {
+  if (import.meta.env.VITE_DEMO === 'true') return demoApi(path, options);
   const response = await fetch(path, {
     credentials: 'same-origin',
     ...options,

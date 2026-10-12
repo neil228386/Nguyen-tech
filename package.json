@@ -9,7 +9,8 @@
     "start": "node server/index.mjs",
     "test": "node --test tests/backend.test.mjs",
     "admin": "node server/admin.mjs",
-    "test:browser": "python3 tests/browser_smoke.py"
+    "test:browser": "python3 tests/browser_smoke.py",
+    "build:demo": "node scripts/build-demo.mjs"
   },
   "dependencies": {
     "express": "^5.1.0",
