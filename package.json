@@ -1,0 +1,26 @@
+{
+  "name": "nguyen-tech",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"node --watch server/index.mjs\" \"vite --host 0.0.0.0\"",
+    "build": "vite build",
+    "start": "node server/index.mjs",
+    "test": "node --test tests/backend.test.mjs",
+    "admin": "node server/admin.mjs",
+    "test:browser": "python3 tests/browser_smoke.py"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.5.0",
+    "concurrently": "^9.1.2",
+    "vite": "^6.3.5"
+  }
+}
