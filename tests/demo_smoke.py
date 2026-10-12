@@ -51,6 +51,6 @@ with sync_playwright() as p:
         page.set_viewport_size({'width': width, 'height': 900})
         assert not page.evaluate('document.documentElement.scrollWidth > innerWidth')
     assert not errors, errors
-    assert not unexpected, unexpected
+    assert not unexpected, [url[:160] for url in unexpected]
     browser.close()
     print('PASS: standalone demo shopping/admin flows, mobile layout; no asset/API network requests or JavaScript errors.')

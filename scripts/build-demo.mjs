@@ -17,7 +17,7 @@ function dataUri(path) {
 const paths = new Set(seedProducts.flatMap(product => [product.image, ...product.gallery]));
 const assets = Object.fromEntries([...paths].map(path => [path, dataUri(path)]));
 for (const path of ['/images/hero-macbook.jpg', '/images/airpods.jpg', '/images/workstation.jpg', '/favicon.svg']) script = script.split(path).join(dataUri(path));
-css = css.replace(/\/fonts\/[A-Za-z0-9-]+\.woff2/g, path => dataUri(path));
+css = css.replace(/(?:\.{1,2}\/|\/)fonts\/([A-Za-z0-9-]+\.woff2)/g, (_match, filename) => dataUri(`/fonts/${filename}`));
 css += '\n.offline-notice{padding:12px 20px;background:#ecf9c7;color:#354522;text-align:center;font:500 11px/1.7 "Be Vietnam Pro",sans-serif;border-bottom:1px solid #cbdc9b}.offline-notice strong{font-weight:700}.offline-notice a{text-decoration:underline;margin-left:8px}';
 const html = `<!doctype html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nguyen Tech — Bản mẫu mở trực tiếp</title><link rel="icon" href="${dataUri('/favicon.svg')}"><style>${css}</style></head><body><div class="offline-notice"><strong>BẢN MẪU OFFLINE</strong> · Dùng thông tin giả để thử mua hàng. Đơn và tài khoản chỉ mô phỏng, mất khi tải lại. Không gửi dữ liệu ra mạng. Đăng nhập mẫu bằng email bất kỳ để thử quản trị.<a href="#/quan-tri">Xem quản trị</a></div><div id="root"></div><script>window.__NT_ASSETS__=${JSON.stringify(assets).replace(/</g,'\\u003c')};</script><script type="module">${script.replace(/<\/script/gi, '<\\/script')}</script></body></html>`;
 mkdirSync('demo', { recursive: true });
